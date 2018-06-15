@@ -9,17 +9,11 @@ use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Illuminate\Contracts\Foundation\Application as ApplicationContract;
+use Illuminate\Contracts\Http\Kernel as HttpKernelContract;
 
 class Application extends Container implements ApplicationContract
 {
     protected $basePath;
-
-    /**
-     * All of the registered service providers.
-     *
-     * @var array
-     */
-    protected $serviceProviders = [];
 
     /**
      * Create a new Illuminate application instance.
@@ -32,6 +26,8 @@ class Application extends Container implements ApplicationContract
         $this->registerBaseBindings();
 
         $this->registerConfiguredProviders();
+
+        $this->registerCoreContainerAliases();
     }
 
     /**
@@ -200,9 +196,42 @@ class Application extends Container implements ApplicationContract
         return new $provider($this);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function handle(SymfonyRequest $request, $type = self::MASTER_REQUEST, $catch = true)
     {
         return $this[HttpKernelContract::class]->handle(Request::createFromBase($request));
+    }
+
+    /**
+     * Register the core class aliases in the container.
+     *
+     * @return void
+     */
+    public function registerCoreContainerAliases()
+    {
+        foreach ([
+            'app' => [
+                \Illuminate\Foundation\Application::class,
+                \Illuminate\Contracts\Container\Container::class,
+                \Illuminate\Contracts\Foundation\Application::class,
+                \Psr\Container\ContainerInterface::class
+            ],
+            'events' => [
+                \Illuminate\Events\Dispatcher::class,
+                \Illuminate\Contracts\Events\Dispatcher::class
+            ],
+            'router' => [
+                \Illuminate\Routing\Router::class,
+                \Illuminate\Contracts\Routing\Registrar::class,
+                \Illuminate\Contracts\Routing\BindingRegistrar::class
+            ]
+        ] as $key => $aliases) {
+            foreach ($aliases as $alias) {
+                $this->alias($key, $alias);
+            }
+        }
     }
 
     /**

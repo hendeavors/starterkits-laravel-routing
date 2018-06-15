@@ -2,6 +2,8 @@
 
 namespace Endeavors\StarterKits\LaravelRouting;
 
+use Exception;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
 
 class ExceptionHandler implements ExceptionHandlerContract
@@ -26,7 +28,7 @@ class ExceptionHandler implements ExceptionHandlerContract
      */
     public function report(Exception $e)
     {
-        var_dump($e->getMessage()); die
+        // todo
     }
 
     /**
@@ -38,7 +40,7 @@ class ExceptionHandler implements ExceptionHandlerContract
      */
     public function render($request, Exception $e)
     {
-        var_dump($e->getMessage()); die
+        var_dump(get_class($e) .  ' Line: ' . $e->getLine() . $e->getMessage()); die;
     }
 
     /**
@@ -50,6 +52,6 @@ class ExceptionHandler implements ExceptionHandlerContract
      */
     public function renderForConsole($output, Exception $e)
     {
-        var_dump($e->getMessage()); die
+        var_dump($e->getMessage()); die;
     }
 }

@@ -127,7 +127,6 @@ class HttpKernel implements KernelContract
         $this->bootstrap();
         return (new Pipeline($this->app))
                     ->send($request)
-                    ->through($this->app->shouldSkipMiddleware() ? [] : $this->middleware)
                     ->then($this->dispatchToRouter());
     }
     /**
@@ -137,9 +136,7 @@ class HttpKernel implements KernelContract
      */
     public function bootstrap()
     {
-        if (! $this->app->hasBeenBootstrapped()) {
-            $this->app->bootstrapWith($this->bootstrappers());
-        }
+        // todo 
     }
     /**
      * Get the route dispatcher callback.

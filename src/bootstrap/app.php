@@ -32,11 +32,6 @@ $app->singleton(
     Endeavors\StarterKits\LaravelRouting\HttpKernel::class
 );
 
-// $app->singleton(
-//     Illuminate\Contracts\Console\Kernel::class,
-//     App\Console\Kernel::class
-// );
-
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Endeavors\StarterKits\LaravelRouting\ExceptionHandler::class

@@ -47,8 +47,14 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
-var_dump($app); die;
 
+/*
+ |-----------------------------------------------------------------------
+ | Load Up The Routes
+ |-----------------------------------------------------------------------
+ */
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'routes.php';
 
 $response = $kernel->handle(
     $request = \Illuminate\Http\Request::capture()

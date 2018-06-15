@@ -5,7 +5,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Endeavors\\StarterKits\\LaravelRouting\\": "src/"
+            "Endeavors\\StarterKits\\LaravelRouting\\": "src/",
+            "Endeavors\\StarterKits\\LaravelRouting\\Http\\": "src/web/Http"
         }
     }
 }
