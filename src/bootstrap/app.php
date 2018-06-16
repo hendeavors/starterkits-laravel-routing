@@ -11,7 +11,7 @@
 |
 */
 
-$app = new Endeavors\StarterKits\LaravelRouting\Application(
+$app = new Endeavors\Components\Routing\Application(
     realpath(__DIR__.'/../')
 );
 
@@ -29,12 +29,12 @@ $app = new Endeavors\StarterKits\LaravelRouting\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Endeavors\StarterKits\LaravelRouting\HttpKernel::class
+    Endeavors\Components\Routing\HttpKernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Endeavors\StarterKits\LaravelRouting\ExceptionHandler::class
+    Endeavors\Components\Routing\ExceptionHandler::class
 );
 
 /*

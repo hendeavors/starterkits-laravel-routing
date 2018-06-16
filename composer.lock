@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0cfdd6945c7eb40ae1709bbac917ac7",
+    "content-hash": "f5a36608af75207598c0db43ea2dfba1",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -72,6 +72,37 @@
                 "string"
             ],
             "time": "2017-07-22T12:18:28+00:00"
+        },
+        {
+            "name": "endeavors/components-routing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hendeavors/components-routing.git",
+                "reference": "434c70a347f6eb296edc106b8282644c238c8d9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hendeavors/components-routing/zipball/434c70a347f6eb296edc106b8282644c238c8d9a",
+                "reference": "434c70a347f6eb296edc106b8282644c238c8d9a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "^5.5",
+                "illuminate/routing": "^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Endeavors\\Components\\Routing\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Use Laravel Routing Component Independently",
+            "time": "2018-06-15T23:33:23+00:00"
         },
         {
             "name": "illuminate/container",
@@ -511,16 +542,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.29.2",
+            "version": "1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337"
+                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ed6aa898982f441ccc9b2acdec51490f2bc5d337",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/863a1a651ea324e1838da3a52753a4239b9d4bea",
+                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea",
                 "shasum": ""
             },
             "require": {
@@ -555,7 +586,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-05-29T15:23:46+00:00"
+            "time": "2018-06-15T11:52:26+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1384,7 +1415,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "endeavors/components-routing": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
