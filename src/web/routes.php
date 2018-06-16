@@ -15,6 +15,10 @@ $router->any('basic/welcome', function() {
     echo 'basic welcome'; die;
 });
 
+$router->any('hello/{name}', function($name) {
+    echo 'hello ' . $name; die;
+});
+
 /*
  |-----------------------------------
  | Some Controller routing
